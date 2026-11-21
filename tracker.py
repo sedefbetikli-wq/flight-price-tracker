@@ -11,164 +11,164 @@ API_KEY = os.environ["SERPAPI_API_KEY"]
 AIRPORTS = ["FRA", "HHN", "STR", "FKB"]
 
 EXCLUDED = {
-    "PT", "HR", "SI", "BA", "RS", "ME",
-    "XK", "AL", "MK", "BG", "RO", "GR"
+    "portugal", "croatia", "slovenia",
+    "bosnia and herzegovina", "serbia",
+    "montenegro", "kosovo", "albania",
+    "north macedonia", "bulgaria",
+    "romania", "greece"
 }
 
-def api(**params):
-    params.update(
-        api_key=API_KEY,
-        currency="EUR",
-        hl="en",
-        gl="de"
-    )
-    url = "https://serpapi.com/search.json?" + urllib.parse.urlencode(params)
-    with urllib.request.urlopen(url, timeout=90) as response:
-        data = json.load(response)
-    if "error" in data:
-        raise RuntimeError(data["error"])
-    return data
+DATA_DIR = Path("data")
+DATA_DIR.mkdir(exist_ok=True)
 
-def weekends():
-    today = dt.date.today()
-    dates = []
-    for n in range(1, 366):
-        day = today + dt.timedelta(days=n)
-        if day.weekday() == 4:
-            dates.append(day)
-    return dates
-
-def flights(origin, destination, date):
-    data = api(
-        engine="google_flights",
-        type=2,
-        departure_id=origin,
-        arrival_id=destination,
-        outbound_date=date.isoformat()
-    )
-    results = []
-    for item in data.get("best_flights", []) + data.get("other_flights", []):
-        price = item.get("price")
-        legs = item.get("flights", [])
-        if not isinstance(price, (int, float)) or price > 40 or not legs:
-            continue
-        airline = legs[0].get("airline")
-        if not airline:
-            continue
-        results.append({
-            "date": str(date),
-            "from": origin,
-            "to": destination,
-            "price": price,
-            "airline": airline,
-            "source": "Google Flights",
-            "link": "https://www.google.com/travel/flights"
-        })
-    return results
+def read_json(path, default):
+    if not path.exists():
+        return default
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return default
 
 def main():
-    all_weekends = weekends()
-    hour = int(dt.datetime.now(dt.timezone.utc).timestamp() // 3600)
+    now = dt.datetime.now(dt.timezone.utc)
+    today = now.date()
 
-    # Prioritize the next 90 days, periodically sample later dates.
-    near = [
-        d for d in all_weekends
-        if (d - dt.date.today()).days <= 90
-    ]
-    pool = all_weekends if hour % 4 == 0 else near
-    friday = pool[hour % len(pool)]
-
-    days_out = [friday, friday + dt.timedelta(days=1)]
-    days_back = [
-        friday + dt.timedelta(days=2),
-        friday + dt.timedelta(days=3)
-    ]
-
-    report = {
-        "checked_at": dt.datetime.now(dt.timezone.utc).isoformat(),
-        "airports": AIRPORTS,
-        "weekend": str(friday),
-        "outbound": [],
-        "returns": [],
-        "weekend_deals": [],
-        "errors": []
+    # Exactly one SerpApi request per execution.
+    params = {
+        "engine": "google_travel_explore",
+        "departure_id": ",".join(AIRPORTS),
+        "type": 1,
+        "travel_duration": 1,
+        "travel_mode": 1,
+        "currency": "EUR",
+        "gl": "de",
+        "hl": "en",
+        "api_key": API_KEY
     }
 
-    # Explore destination discovery from all four airports.
-    try:
-        discovery = api(
-            engine="google_travel_explore",
-            departure_id=",".join(AIRPORTS),
-            type=1,
-            travel_duration=1
-        )
-        destinations = discovery.get("destinations", [])
-    except Exception as error:
-        report["errors"].append(str(error))
-        destinations = []
+    url = (
+        "https://serpapi.com/search.json?"
+        + urllib.parse.urlencode(params)
+    )
 
-    candidates = []
-    for place in destinations:
-        airport = place.get("destination_airport") or {}
-        code = airport.get("code")
-        country_code = (place.get("country_code") or "").upper()
-        if not code or country_code in EXCLUDED:
+    with urllib.request.urlopen(url, timeout=90) as response:
+        data = json.load(response)
+
+    if data.get("error"):
+        raise RuntimeError(data["error"])
+
+    results = []
+
+    for item in data.get("destinations", []):
+        country = str(item.get("country") or "")
+        if country.casefold() in EXCLUDED:
             continue
-        candidates.append({
-            "iata": code,
-            "city": place.get("name"),
-            "country": place.get("country")
+
+        airport = item.get("destination_airport") or {}
+        code = airport.get("code")
+        city = item.get("name")
+        airline = item.get("airline")
+        price = item.get("flight_price")
+        start = item.get("start_date")
+        end = item.get("end_date")
+
+        if not all([code, city, country, start, end]):
+            continue
+
+        if not isinstance(price, (int, float)):
+            continue
+
+        if price > 60:
+            continue
+
+        try:
+            departure = dt.date.fromisoformat(start)
+            returning = dt.date.fromisoformat(end)
+        except ValueError:
+            continue
+
+        if departure < today:
+            continue
+
+        if departure.weekday() not in (4, 5):
+            continue
+
+        if returning.weekday() not in (6, 0):
+            continue
+
+        if (returning - departure).days not in (1, 2, 3):
+            continue
+
+        results.append({
+            "city": city,
+            "country": country,
+            "destination_iata": code,
+            "departure_date": start,
+            "return_date": end,
+            "explore_total_eur": price,
+            "airline": airline,
+            "source": "Google Flights Explore",
+            "link": item.get("link"),
+            "note": (
+                "Explore round-trip result. "
+                "Separate outbound and return prices "
+                "are not provided."
+            )
         })
 
-    # Rotate destinations to limit API usage.
-    selected = candidates[hour % len(candidates):] if candidates else []
-    selected = (selected + candidates)[:1]
+    results.sort(key=lambda x: x["explore_total_eur"])
 
-    for destination in selected:
-        code = destination["iata"]
-        for airport in AIRPORTS:
-            for date in days_out:
-                try:
-                    found = flights(airport, code, date)
-                    for flight in found:
-                        flight.update(destination=destination)
-                    report["outbound"].extend(found)
-                except Exception as error:
-                    report["errors"].append(str(error))
+    latest = {
+        "checked_at_utc": now.isoformat(),
+        "searched_airports": AIRPORTS,
+        "api_requests": 1,
+        "eligible_results": results[:30]
+    }
 
-            for date in days_back:
-                try:
-                    found = flights(code, airport, date)
-                    for flight in found:
-                        flight.update(destination=destination)
-                    report["returns"].extend(found)
-                except Exception as error:
-                    report["errors"].append(str(error))
+    (DATA_DIR / "latest.json").write_text(
+        json.dumps(latest, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
 
-    for outgoing in report["outbound"]:
-        for returning in report["returns"]:
-            if outgoing["to"] != returning["from"]:
-                continue
-            if outgoing["price"] + returning["price"] <= 60:
-                report["weekend_deals"].append({
-                    "destination": outgoing["destination"],
-                    "outbound": outgoing,
-                    "return": returning,
-                    "total_eur": outgoing["price"] + returning["price"]
-                })
+    history_path = DATA_DIR / "history.json"
+    history = read_json(history_path, [])
 
-    Path("data").mkdir(exist_ok=True)
-    Path("data/latest.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2),
+    known = {
+        (
+            x["destination_iata"],
+            x["departure_date"],
+            x["return_date"],
+            x["explore_total_eur"]
+        )
+        for x in history
+    }
+
+    new_results = []
+
+    for item in results:
+        key = (
+            item["destination_iata"],
+            item["departure_date"],
+            item["return_date"],
+            item["explore_total_eur"]
+        )
+
+        if key not in known:
+            history.append(item)
+            new_results.append(item)
+            known.add(key)
+
+    history_path.write_text(
+        json.dumps(history[-500:], ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
     print(json.dumps({
-        "outbound": len(report["outbound"]),
-        "returns": len(report["returns"]),
-        "weekend_deals": len(report["weekend_deals"]),
-        "errors": len(report["errors"])
-    }))
+        "api_requests": 1,
+        "eligible_results": len(results),
+        "new_results": len(new_results),
+        "best_results": new_results[:5]
+    }, ensure_ascii=False))
 
 if __name__ == "__main__":
     main()
