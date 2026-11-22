@@ -1,18 +1,18 @@
 {
-  "checked_at_utc": "2026-11-22T06:53:18.371545+00:00",
-  "airport": "STR",
+  "checked_at_utc": "2026-11-22T09:40:01.204902+00:00",
+  "airport": "FKB",
   "api_requests": 1,
   "results": [
     {
-      "origin": "STR",
-      "destination": "RMO",
-      "city": "Chișinău",
-      "country": "Moldova",
-      "departure_date": "2027-02-12",
-      "return_date": "2027-02-15",
-      "explore_total_eur": 60,
+      "origin": "FKB",
+      "destination": "VLC",
+      "city": "València",
+      "country": "Spain",
+      "departure_date": "2027-01-23",
+      "return_date": "2027-01-25",
+      "explore_total_eur": 47,
       "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTEyagcIARIDU1RSGhUSCjIwMjctMDItMTVyBwgBEgNTVFJAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBmbjc3"
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
     }
   ],
   "error": null
