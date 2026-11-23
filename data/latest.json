@@ -1,40 +1,18 @@
 {
-  "checked_at_utc": "2026-11-23T15:55:04.954792+00:00",
-  "airport": "HHN",
+  "checked_at_utc": "2026-11-23T18:49:23.119588+00:00",
+  "airport": "STR",
   "api_requests": 1,
   "results": [
     {
-      "origin": "HHN",
-      "destination": "STN",
-      "city": "London",
-      "country": "United Kingdom",
-      "departure_date": "2027-01-29",
-      "return_date": "2027-02-01",
-      "explore_total_eur": 38,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTI5agcIARIDSEhOGhUSCjIwMjctMDItMDFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA0anBs"
-    },
-    {
-      "origin": "HHN",
-      "destination": "FCO",
-      "city": "Rome",
-      "country": "Italy",
-      "departure_date": "2027-02-20",
-      "return_date": "2027-02-22",
-      "explore_total_eur": 45,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTIwagcIARIDSEhOGhUSCjIwMjctMDItMjJyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA2YzYy"
-    },
-    {
-      "origin": "HHN",
-      "destination": "KIR",
-      "city": "Kerry",
-      "country": "Ireland",
+      "origin": "STR",
+      "destination": "RMO",
+      "city": "Chișinău",
+      "country": "Moldova",
       "departure_date": "2027-02-19",
-      "return_date": "2027-02-21",
-      "explore_total_eur": 54,
+      "return_date": "2027-02-22",
+      "explore_total_eur": 60,
       "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDSEhOGhUSCjIwMjctMDItMjFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBtX3c2"
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDU1RSGhUSCjIwMjctMDItMjJyBwgBEgNTVFJAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBmbjc3"
     }
   ],
   "error": null
