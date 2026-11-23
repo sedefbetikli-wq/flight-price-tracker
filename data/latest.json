@@ -1,18 +1,29 @@
 {
-  "checked_at_utc": "2026-11-23T18:49:23.119588+00:00",
-  "airport": "STR",
+  "checked_at_utc": "2026-11-23T21:41:58.414498+00:00",
+  "airport": "FKB",
   "api_requests": 1,
   "results": [
     {
-      "origin": "STR",
-      "destination": "RMO",
-      "city": "Chișinău",
-      "country": "Moldova",
-      "departure_date": "2027-02-19",
-      "return_date": "2027-02-22",
-      "explore_total_eur": 60,
+      "origin": "FKB",
+      "destination": "STN",
+      "city": "London",
+      "country": "United Kingdom",
+      "departure_date": "2027-02-05",
+      "return_date": "2027-02-07",
+      "explore_total_eur": 46,
       "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDU1RSGhUSCjIwMjctMDItMjJyBwgBEgNTVFJAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBmbjc3"
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTA1agcIARIDRktCGhUSCjIwMjctMDItMDdyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA0anBs"
+    },
+    {
+      "origin": "FKB",
+      "destination": "VLC",
+      "city": "València",
+      "country": "Spain",
+      "departure_date": "2027-01-23",
+      "return_date": "2027-01-25",
+      "explore_total_eur": 50,
+      "source": "Google Flights Explore",
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
     }
   ],
   "error": null
