@@ -1,7 +1,7 @@
 {
-  "checked_at_utc": "2026-11-24T12:57:40.007070+00:00",
-  "airport": "FRA",
+  "checked_at_utc": "2026-11-24T15:56:26.486253+00:00",
+  "airport": "HHN",
   "api_requests": 1,
   "results": [],
-  "error": null
+  "error": "Empty results for departure_id: \"HHN\"."
 }
