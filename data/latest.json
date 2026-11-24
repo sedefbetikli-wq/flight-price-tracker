@@ -1,7 +1,19 @@
 {
-  "checked_at_utc": "2026-11-24T15:56:26.486253+00:00",
-  "airport": "HHN",
+  "checked_at_utc": "2026-11-24T18:47:52.052029+00:00",
+  "airport": "STR",
   "api_requests": 1,
-  "results": [],
-  "error": "Empty results for departure_id: \"HHN\"."
+  "results": [
+    {
+      "origin": "STR",
+      "destination": "RMO",
+      "city": "Chișinău",
+      "country": "Moldova",
+      "departure_date": "2027-02-19",
+      "return_date": "2027-02-22",
+      "explore_total_eur": 60,
+      "source": "Google Flights Explore",
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDU1RSGhUSCjIwMjctMDItMjJyBwgBEgNTVFJAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBmbjc3"
+    }
+  ],
+  "error": null
 }
