@@ -1,30 +1,7 @@
 {
-  "checked_at_utc": "2026-11-25T09:59:29.401742+00:00",
-  "airport": "FKB",
+  "checked_at_utc": "2026-11-25T13:01:58.145769+00:00",
+  "airport": "FRA",
   "api_requests": 1,
-  "results": [
-    {
-      "origin": "FKB",
-      "destination": "STN",
-      "city": "London",
-      "country": "United Kingdom",
-      "departure_date": "2027-02-13",
-      "return_date": "2027-02-15",
-      "explore_total_eur": 44,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTEzagcIARIDRktCGhUSCjIwMjctMDItMTVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA0anBs"
-    },
-    {
-      "origin": "FKB",
-      "destination": "VLC",
-      "city": "València",
-      "country": "Spain",
-      "departure_date": "2027-01-23",
-      "return_date": "2027-01-25",
-      "explore_total_eur": 47,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
-    }
-  ],
+  "results": [],
   "error": null
 }
