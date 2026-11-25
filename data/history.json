@@ -174,5 +174,16 @@
     "explore_total_eur": 48,
     "source": "Google Flights Explore",
     "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
+  },
+  {
+    "origin": "HHN",
+    "destination": "KIR",
+    "city": "Kerry",
+    "country": "Ireland",
+    "departure_date": "2027-02-19",
+    "return_date": "2027-02-21",
+    "explore_total_eur": 53,
+    "source": "Google Flights Explore",
+    "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDSEhOGhUSCjIwMjctMDItMjFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBtX3c2"
   }
 ]
