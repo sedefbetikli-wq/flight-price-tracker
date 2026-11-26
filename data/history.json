@@ -185,5 +185,16 @@
     "explore_total_eur": 53,
     "source": "Google Flights Explore",
     "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTE5agcIARIDSEhOGhUSCjIwMjctMDItMjFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBtX3c2"
+  },
+  {
+    "origin": "STR",
+    "destination": "RMO",
+    "city": "Chișinău",
+    "country": "Moldova",
+    "departure_date": "2027-02-12",
+    "return_date": "2027-02-15",
+    "explore_total_eur": 55,
+    "source": "Google Flights Explore",
+    "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAyLTEyagcIARIDU1RSGhUSCjIwMjctMDItMTVyBwgBEgNTVFJAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBmbjc3"
   }
 ]
