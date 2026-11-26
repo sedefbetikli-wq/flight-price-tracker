@@ -1,7 +1,7 @@
 {
-  "checked_at_utc": "2026-11-25T21:49:09.635885+00:00",
-  "airport": "FKB",
+  "checked_at_utc": "2026-11-26T00:51:18.285753+00:00",
+  "airport": "FRA",
   "api_requests": 1,
   "results": [],
-  "error": "Empty results for departure_id: \"FKB\"."
+  "error": null
 }
