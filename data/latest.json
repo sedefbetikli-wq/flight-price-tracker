@@ -1,19 +1,7 @@
 {
-  "checked_at_utc": "2026-11-27T09:56:20.733846+00:00",
-  "airport": "FKB",
+  "checked_at_utc": "2026-11-27T12:57:22.508318+00:00",
+  "airport": "FRA",
   "api_requests": 1,
-  "results": [
-    {
-      "origin": "FKB",
-      "destination": "VLC",
-      "city": "València",
-      "country": "Spain",
-      "departure_date": "2027-01-23",
-      "return_date": "2027-01-25",
-      "explore_total_eur": 53,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
-    }
-  ],
+  "results": [],
   "error": null
 }
