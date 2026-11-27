@@ -1,19 +1,7 @@
 {
-  "checked_at_utc": "2026-11-27T15:51:13.942832+00:00",
-  "airport": "HHN",
+  "checked_at_utc": "2026-11-27T18:44:24.420248+00:00",
+  "airport": "STR",
   "api_requests": 1,
-  "results": [
-    {
-      "origin": "HHN",
-      "destination": "STN",
-      "city": "London",
-      "country": "United Kingdom",
-      "departure_date": "2027-01-29",
-      "return_date": "2027-02-01",
-      "explore_total_eur": 38,
-      "source": "Google Flights Explore",
-      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTI5agcIARIDSEhOGhUSCjIwMjctMDItMDFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA0anBs"
-    }
-  ],
-  "error": null
+  "results": [],
+  "error": "Empty results for departure_id: \"STR\"."
 }
