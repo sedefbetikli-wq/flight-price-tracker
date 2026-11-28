@@ -1,7 +1,30 @@
 {
-  "checked_at_utc": "2026-11-28T00:51:55.924474+00:00",
-  "airport": "FRA",
+  "checked_at_utc": "2026-11-28T03:46:53.631119+00:00",
+  "airport": "HHN",
   "api_requests": 1,
-  "results": [],
+  "results": [
+    {
+      "origin": "HHN",
+      "destination": "STN",
+      "city": "London",
+      "country": "United Kingdom",
+      "departure_date": "2027-01-29",
+      "return_date": "2027-02-01",
+      "explore_total_eur": 38,
+      "source": "Google Flights Explore",
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTI5agcIARIDSEhOGhUSCjIwMjctMDItMDFyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzA0anBs"
+    },
+    {
+      "origin": "HHN",
+      "destination": "KIR",
+      "city": "Kerry",
+      "country": "Ireland",
+      "departure_date": "2026-12-11",
+      "return_date": "2026-12-13",
+      "explore_total_eur": 51,
+      "source": "Google Flights Explore",
+      "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI2LTEyLTExagcIARIDSEhOGhUSCjIwMjYtMTItMTNyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBtX3c2"
+    }
+  ],
   "error": null
 }
