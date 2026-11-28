@@ -251,5 +251,16 @@
     "explore_total_eur": 51,
     "source": "Google Flights Explore",
     "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI2LTEyLTExagcIARIDSEhOGhUSCjIwMjYtMTItMTNyBwgBEgNISE5AAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBtX3c2"
+  },
+  {
+    "origin": "FKB",
+    "destination": "VLC",
+    "city": "València",
+    "country": "Spain",
+    "departure_date": "2027-01-23",
+    "return_date": "2027-01-25",
+    "explore_total_eur": 55,
+    "source": "Google Flights Explore",
+    "link": "https://www.google.com/travel/explore?hl=en&gl=de&curr=EUR&tfs=CBwQAxoVEgoyMDI3LTAxLTIzagcIARIDRktCGhUSCjIwMjctMDEtMjVyBwgBEgNGS0JAAUgBcAGCAQsI____________AZgBAbIBDioMCAMSCC9tLzBoM3R2"
   }
 ]
